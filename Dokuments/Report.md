@@ -9,6 +9,12 @@
 - Неуспешных тестов: 12 (42%)
 
 ### Отчет по результатам тестирования Allure
+![report allure](https://github.com/daishanqa/graduate_work/assets/144580183/7457bb0a-5320-4a78-a1eb-da7f039c2825)
+
+### Общие рекомендации
+- Исправить найденные дефекты
+- Подробные описания дефектов находятся в [Issues](https://github.com/daishanqa/graduate_work/issues)
+
 
 
 
