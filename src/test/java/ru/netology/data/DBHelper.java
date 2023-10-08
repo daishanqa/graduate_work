@@ -19,9 +19,8 @@ public class DBHelper {
     public static String getDebitCardStatus() {
         QueryRunner runner = new QueryRunner();
         String dataSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
-        String status = null;
         Connection connection = DriverManager.getConnection(url, user, password);
-        status = runner.query(connection, dataSQL, new ScalarHandler<>());
+        String status = runner.query(connection, dataSQL, new ScalarHandler<>());
         return status;
     }
 
@@ -29,16 +28,15 @@ public class DBHelper {
     public static String getCreditStatus() {
         QueryRunner runner = new QueryRunner();
         String dataSQL = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
-        String status = null;
-        Connection connection = DriverManager.getConnection (url, user, password);
-        status = runner.query(connection, dataSQL, new ScalarHandler<>());
+        Connection connection = DriverManager.getConnection(url, user, password);
+        String status = runner.query(connection, dataSQL, new ScalarHandler<>());
         return status;
     }
 
     @SneakyThrows
     public static void cleanDatabase()  {
-        val runner = new QueryRunner();
-        val conn = DriverManager.getConnection(url, user, password);
+        QueryRunner runner = new QueryRunner();
+        Connection conn = DriverManager.getConnection(url, user, password);
         runner.update(conn, "DELETE FROM credit_request_entity;");
         runner.update(conn, "DELETE FROM payment_entity;");
         runner.update(conn, "DELETE FROM order_entity;");
